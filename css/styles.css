@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad:wght@400;500&family=Poppins:wght@300;400;500;600;700&family=Rethink+Sans:wght@400;500;600&display=swap');
+
 /* - Reset CSS - */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -70,3 +72,9 @@ a {
 	background-color: white;
 	box-shadow: 0px 0px 10px 5px rgb(42, 188, 255);
  }
+
+ /* - Index - */
+ /* - Clock - */
+ /* - Password - */
+ /* - Links - */
+ /* - Weather - */
