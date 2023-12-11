@@ -1,19 +1,87 @@
-@import url('https://fonts.googleapis.com/css2?family=Afacad:wght@400;500&family=Poppins:wght@300;400;500;600;700&family=Rethink+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* - Reset CSS - */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -21,44 +89,78 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
 /* --- */
- body {
+body {
 	height: 100vh;
-	background-size: cover;	
+	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
 	transition: all .5s linear;
+	font-family: 'Quicksand', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+	font-family: 'Poppins', sans-serif;
+	font-size: 20px;
+	padding: 5px;
+}
+
+h3 {
+	font-size: 16px;
 }
 
 .nav {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap:10px;
+	width: 100%;
+	position: fixed;
+	gap: 10px;
 }
 
 a {
@@ -66,15 +168,102 @@ a {
 	color: black;
 	backdrop-filter: blur(25px);
 	padding: 15px;
- }
+}
 
- a:hover {
+a:hover {
 	background-color: white;
 	box-shadow: 0px 0px 10px 5px rgb(42, 188, 255);
- }
+}
 
- /* - Index - */
- /* - Clock - */
- /* - Password - */
- /* - Links - */
- /* - Weather - */
+/* - Index - */
+.main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	height: 100vh;
+}
+
+
+
+/* - Clock - */
+/* - Password - */
+.div-password {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+	line-height: 25px;
+	background-color: rgba(174, 193, 201, 0.45);
+	padding: 20px 25px;
+	border-radius: 10px;
+}
+
+.div-password input {
+	border: .5px solid black;
+	font-family: 'Quicksand', sans-serif;
+}
+
+.div-password input:focus {
+	outline: none;
+	border: 2px solid rgba(124, 194, 255);
+}
+
+.div-password h3:hover {
+	color: rgb(50, 121, 184);
+	cursor: pointer;
+}
+
+.hidden {
+	display: none;
+}
+
+.custom-password {
+	margin-top: 10px;
+}
+
+.div-btn {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 15px;
+}
+
+.btn {
+	padding: 5px 7px;
+	border: none;
+	background-color: black;
+	border-radius: 5px;
+	color: white;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.btn:focus {
+	outline: none;
+}
+
+#generated-password {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+	max-width: 450px;
+}
+
+#warning {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin-top: 10px;
+	max-width: 500px;
+}
+
+.bold {
+	font-weight: 500;
+}
+
+/* - Links - */
+/* - Weather - */

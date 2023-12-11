@@ -1,6 +1,11 @@
 const passwordInput = document.getElementById('passwordInput')
 const passwordDiv = document.getElementById('generated-password')
+const warningDiv = document.getElementById('warning')
 const customInput = document.querySelectorAll('.custom-input')
+
+const show = () => {
+   document.getElementById('custom').classList.toggle('hidden')
+}
 
 const mayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
 const minus = "abcdefghijklmnopqrstuvwxyz".split('')
@@ -14,6 +19,7 @@ const passwordGenerator = () => {
     const minusLength = +customInput[1].value
     const numberLength = +customInput[2].value
     const symbolLength = +customInput[3].value
+    warningDiv.innerHTML = ''
 
     if (!inputLength) {
         alert('Introduce una longitud para tu contraseña')
@@ -59,24 +65,27 @@ const customPassword = (input, mayus, minus, number, symbol) => {
     const customArray = [...arrayMayus, ...arrayMinus, ...arrayNumber, ...arraySymbol]
     if (customArray.length > input) {
         input = customArray.length
-        passwordDiv.innerHTML=`
-        <p>El número de caracteres personalizados supera la longitud total especificada, la contraseña generada pasa a tener ${input} caracteres`
+        warningDiv.innerHTML = `
+        El número de caracteres personalizados supera la longitud total especificada, la contraseña generada pasa a tener ${input} caracteres`
     }
     const standardLength = input - (mayus + minus + number + symbol)
     let cpArray = [...customArray, ...randomCharacterGenerator(standardLength)]
-    cpArray.sort(() => Math.random()-0.5)
+    cpArray.sort(() => Math.random() - 0.5)
 
     printPassword(cpArray)
 }
 
 const printPassword = (passwordArray) => {
-    passwordDiv.innerHTML += `<p>Contraseña generada: ${passwordArray.join('')}`
+    passwordDiv.innerHTML = `
+    <p class="bold">Contraseña generada:</p>
+    <p>${passwordArray.join('')}</p>`
 }
 
 const resetPassword = () => {
     passwordInput.value = '12'
     customInput
     for (const item of customInput) { item.value = '0' }
+    warningDiv.innerHTML = ''
     passwordDiv.innerHTML = ''
 }
 
