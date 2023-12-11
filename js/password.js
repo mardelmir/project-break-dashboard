@@ -60,10 +60,12 @@ const customPassword = (input, mayus, minus, number, symbol) => {
     if (customArray.length > input) {
         input = customArray.length
         passwordDiv.innerHTML=`
-        <p>El número de caracteres indicados superan la longitud total especificada, la contraseña generada pasa a tener ${input} caracteres`
+        <p>El número de caracteres personalizados supera la longitud total especificada, la contraseña generada pasa a tener ${input} caracteres`
     }
     const standardLength = input - (mayus + minus + number + symbol)
-    const cpArray = [...customArray, ...randomCharacterGenerator(standardLength)]
+    let cpArray = [...customArray, ...randomCharacterGenerator(standardLength)]
+    cpArray.sort(() => Math.random()-0.5)
+
     printPassword(cpArray)
 }
 
