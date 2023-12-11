@@ -32,14 +32,18 @@ const basicPassword = (input) => {
 }
 
 const customPassword = (input, mayus, minus, number, symbol) => {
-    const customArray = [...Array(input)]
+    const passwordArr = [...Array(input)]
     const customIteration = [mayus, minus, number, symbol]
-    console.log(customIteration);
-    customIteration.forEach(type => {
 
+    customIteration.forEach((typeIteration, i) => {
+        const typeArray = [...Array(typeIteration)]
+        for (let r in typeArray) {
+            const characterIndex = Math.floor(Math.random() * (typesArray[i].length))
+            typeArray[r] = typesArray[typesIndex][characterIndex]
+        }
+        console.log(typeArray)
     })
 
-    
     const customMinus = typesArray[1]
     const customNumber = typesArray[2]
     const customSymbol = typesArray[3]
