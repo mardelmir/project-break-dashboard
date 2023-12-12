@@ -15,5 +15,5 @@ const background = () => {
     document.body.style.backgroundImage = `url('../assets/img/${imgArray[currentBackground]}.jpg')`
 }
 
-// background()
 // setInterval(background, 15000)
+// background()
