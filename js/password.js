@@ -3,9 +3,7 @@ const passwordDiv = document.getElementById('generated-password')
 const warningDiv = document.getElementById('warning')
 const customInput = document.querySelectorAll('.custom-input')
 
-const show = () => {
-   document.getElementById('custom').classList.toggle('hidden')
-}
+const show = () => {document.getElementById('custom').classList.toggle('hidden')}
 
 const mayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
 const minus = "abcdefghijklmnopqrstuvwxyz".split('')
@@ -36,9 +34,7 @@ const randomCharacterGenerator = (input) => {
     } return randomArray
 }
 
-const standardPassword = (input) => {
-    printPassword(randomCharacterGenerator(input))
-}
+const standardPassword = (input) => { printPassword(randomCharacterGenerator(input)) }
 
 const customPassword = (input, mayus, minus, number, symbol) => {
     const arrayMayus = []
@@ -71,7 +67,6 @@ const customPassword = (input, mayus, minus, number, symbol) => {
     const standardLength = input - (mayus + minus + number + symbol)
     let cpArray = [...customArray, ...randomCharacterGenerator(standardLength)]
     cpArray.sort(() => Math.random() - 0.5)
-
     printPassword(cpArray)
 }
 
@@ -81,17 +76,7 @@ const printPassword = (passwordArray) => {
     <p>${passwordArray.join('')}</p>`
 }
 
-const resetPassword = () => {
-    passwordInput.value = '12'
-    customInput
-    for (const item of customInput) { item.value = '0' }
-    warningDiv.innerHTML = ''
-    passwordDiv.innerHTML = ''
-}
+const resetPassword = () => { location.reload() }
 
-const keystroke = (press) => {
-    if (press.key === 'Enter') {
-        passwordGenerator();
-    }
-}
+const keystroke = (press) => { if (press.key === 'Enter') { passwordGenerator() } }
 window.addEventListener('keydown', keystroke);
