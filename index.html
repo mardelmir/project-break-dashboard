@@ -18,11 +18,48 @@
             <a href="./weather.html">Weather</a>
         </nav>
     </header>
-    <main>
+    <main class="main">
         <section class="clock"></section>
         <section class="weather"></section>
         <section class="links"></section>
-        <section class="password"></section>
+        <section class="password">
+            <div class="div-password">
+                <div>
+                    <h2>Generador de contraseñas seguras</h2>
+                    <p>Introduce el número de caracteres de tu contraseña
+                        <input id="passwordInput" type="number" min="12" max="50" value="12">
+                    </p>
+                </div>
+                <div class="custom-password">
+                    <h3 onclick="show()">Personalización de la contraseña (opcional)</h3>
+                    <div id="custom" class="hidden">
+                        <p>
+                            Introduce el número mínimo de caracteres en mayúsculas
+                            <input class="custom-input" type="number" min="0" max="50" value="0">
+                        </p>
+                        <p>
+                            Introduce el número mínimo de caracteres en minúsculas
+                            <input class="custom-input" type="number" min="0" max="50" value="0">
+                        </p>
+                        <p>
+                            Introduce el número mínimo de caracteres numéricos
+                            <input class="custom-input" type="number" min="0" max="50" value="0">
+                        </p>
+                        <p>
+                            Introduce el número mínimo de caracteres de símbolos
+                            <input class="custom-input" type="number" min="0" max="50" value="0">
+                        </p>
+                    </div>
+                </div>
+                <div class="div-btn">
+                    <button class="btn" type="button" onclick="passwordGenerator()">Generar contraseña</button>
+                    <button class="btn" type="button" onclick="resetPassword()">Borrar</button>
+                </div>
+                <div id="warning"></div>
+                <div id="generated-password">
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="./js/background.js"></script>

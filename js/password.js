@@ -71,9 +71,7 @@ const customPassword = (input, mayus, minus, number, symbol) => {
 }
 
 const printPassword = (passwordArray) => {
-    passwordDiv.innerHTML = `
-    <p class="bold">Contraseña generada:</p>
-    <p>${passwordArray.join('')}</p>`
+    passwordDiv.innerHTML = `<span class="bold">Contraseña generada:</span> <span class="important">${passwordArray.join('')}</span>`
 }
 
 const resetPassword = () => { location.reload() }
