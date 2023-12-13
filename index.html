@@ -29,29 +29,27 @@
                 <div>
                     <h2>Generador de contraseñas seguras</h2>
                     <p>Introduce el número de caracteres de tu contraseña
-                        <input id="passwordInput" type="number" min="12" max="50" value="12">
+                        <input id="passwordInput" type="number" min="12" max="50" value="12" required>
                     </p>
-                </div>
-                <div class="custom-password">
                     <h3 onclick="show()">Personalización de la contraseña (opcional)</h3>
-                    <div id="custom" class="hidden">
-                        <p>
-                            Introduce el número mínimo de caracteres en mayúsculas
-                            <input class="custom-input" type="number" min="0" max="50" value="0">
-                        </p>
-                        <p>
-                            Introduce el número mínimo de caracteres en minúsculas
-                            <input class="custom-input" type="number" min="0" max="50" value="0">
-                        </p>
-                        <p>
-                            Introduce el número mínimo de caracteres numéricos
-                            <input class="custom-input" type="number" min="0" max="50" value="0">
-                        </p>
-                        <p>
-                            Introduce el número mínimo de caracteres de símbolos
-                            <input class="custom-input" type="number" min="0" max="50" value="0">
-                        </p>
-                    </div>
+                </div>
+                <div id="custom" class="hidden">
+                    <p>
+                        Introduce el número mínimo de caracteres en mayúsculas
+                        <input id="mayusInput" type="number" min="0" max="50" value="0">
+                    </p>
+                    <p>
+                        Introduce el número mínimo de caracteres en minúsculas
+                        <input id="minusInput" type="number" min="0" max="50" value="0">
+                    </p>
+                    <p>
+                        Introduce el número mínimo de caracteres numéricos
+                        <input id="numberInput" type="number" min="0" max="50" value="0">
+                    </p>
+                    <p>
+                        Introduce el número mínimo de caracteres de símbolos
+                        <input id="symbolInput" type="number" min="0" max="50" value="0">
+                    </p>
                 </div>
                 <div class="div-btn">
                     <button class="btn" type="button" onclick="passwordGenerator()">Generar contraseña</button>

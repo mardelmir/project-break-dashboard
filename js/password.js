@@ -1,7 +1,5 @@
-const passwordInput = document.getElementById('passwordInput')
 const passwordDiv = document.getElementById('generated-password')
 const warningDiv = document.getElementById('warning')
-const customInput = document.querySelectorAll('.custom-input')
 
 const show = () => {document.getElementById('custom').classList.toggle('hidden')}
 
@@ -12,11 +10,11 @@ const symbol = "!@#$%^&*()-_=+".split('')
 const typesArray = [mayus, minus, number, symbol]
 
 const passwordGenerator = () => {
-    const inputLength = +passwordInput.value
-    const mayusLength = +customInput[0].value
-    const minusLength = +customInput[1].value
-    const numberLength = +customInput[2].value
-    const symbolLength = +customInput[3].value
+    const inputLength = +document.getElementById('passwordInput').value
+    const mayusLength = +document.getElementById('mayusInput').value
+    const minusLength = +document.getElementById('minusInput').value
+    const numberLength = +document.getElementById('numberInput').value
+    const symbolLength = +document.getElementById('symbolInput').value
     warningDiv.innerHTML = ''
 
     if (!inputLength) {
@@ -74,6 +72,3 @@ const printPassword = (passwordArray) => {
     passwordDiv.innerHTML = `<span class="bold">Contraseña generada:</span> <span class="important">${passwordArray.join('')}</span>`}
 
 const resetPassword = () => { location.reload() }
-
-const keystroke = (press) => { if (press.key === 'Enter') { passwordGenerator() } }
-window.addEventListener('keydown', keystroke);
