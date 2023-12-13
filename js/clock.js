@@ -22,8 +22,20 @@ const currentDT = () => {
 
 const quote = (hour) => {
     const quote = document.getElementById('quote')
-    if (0 <= hour <= 7) {
-        quote.textContent = 'Es hora de descansar. Apaga y sigue mañana'
+    if (hour > 0 && hour <= 7) {
+        quote.textContent = 'Es hora de dormir, ¡hasta mañana!'
+    } else if (hour > 7 && hour <= 12) {
+        quote.textContent = 'Buenos días, desayuna fuerte y a manos a la obra'
+    } else if (hour > 12 && hour <= 14) {
+        quote.textContent = 'Echa un ratito más antes del almuerzo'
+    } else if (hour > 14 && hour <= 16) {
+        quote.textContent = 'Espero que hayas comido, recuerda beber agua'
+    } else if (hour > 16 && hour <= 18) {
+        quote.textContent = 'Buenas tardes, dale el último empujón'
+    } else if (hour > 18 && hour <= 22) {
+        quote.textContent = 'Esto ya son horas extra, ... piensa en parar pronto'
+    } else if (hour > 22 && hour <= 0) {
+        quote.textContent = 'Buenas noches, ve cerrando y a descansar'
     }
 }
 
