@@ -17,36 +17,35 @@ const saveLink = () => {
         const savedArray = JSON.stringify([newLink])
         localStorage.setItem('links', savedArray)
     } else {
-        const savedOld = JSON.parse(localStorage.links)
-        localStorage.links = JSON.stringify([...savedOld, newLink])
+        const oldArray = JSON.parse(localStorage.links)
+        localStorage.links = JSON.stringify([...oldArray, newLink])
     }
     printLink()
-
 }
 
 const printLink = () => {
     savedList.innerHTML = ''
     const savedLinks = JSON.parse(localStorage.links)
     savedLinks.forEach(link => {
+        const { name, url } = link
         savedList.innerHTML += `
         <li>
-            <a href="${link.url}" target="_blank">${link.name}</a>
-            <span class="delete-link">x</span>
+            <a href="${url}" target="_blank">${name}</a>
+            <button class="delete-link-btn" onclick="deleteLink('${name}', '${url}')">x</button>
         </li>`
     })
 }
 
-const deleteLink = () => {
-    console.log()
-    // JSON.parse(localStorage.links).filter(link => {
-    //     console.log(link)
-    // })
+const deleteLink = (removeName, removeUrl) => {
+    const storedLinks = JSON.parse(localStorage.links)
+    storedLinks.filter(link => {
+        if (link.name == removeName && link.url == removeUrl) {
+            const index = storedLinks.indexOf(link)
+            storedLinks.splice(index, 1)
+            localStorage.links = JSON.stringify(storedLinks)
+            printLink()
+        }
+    })
 }
 
 !localStorage.links ? savedList.innerHTML = '' : printLink()
-
-const deleteItem = document.getElementsByClassName('delete-link')
-
-for (let element of deleteItem){
-    element.addEventListener('click', deleteLink)
-}
