@@ -226,6 +226,7 @@ input:focus {
 }
 
 .div-clock,
+.div-weather,
 .div-links,
 .div-password {
 	display: flex;
@@ -274,6 +275,65 @@ input:focus {
 }
 
 /* - Weather - */
+.div-weather {
+	align-items: start;
+	gap: 15px;
+	width: 500px;
+}
+
+#weatherLocation {
+	font-family: 'Poppins', sans-serif;
+}
+
+#weatherLocation p:first-child {
+	font-size: 20px;
+}
+
+#weatherLocation p:nth-child(2) {
+	color: rgb(18, 112, 195);
+}
+
+#currentWeather {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+#currentWeather > p {
+	font-size: 25px;
+}
+
+.detailed-weather {
+	padding: 5px;
+}
+
+.div-forecast {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.div-forecast > p{
+	font-family: 'Poppins', sans-serif;
+}
+
+#hourForecast {
+	display: flex;
+	box-sizing: border-box;
+	width: 100%;
+	overflow: scroll;
+}
+
+#hourForecast li {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.now {
+	color: white;
+	background-color: rgba(18, 112, 195, .400);
+}
+
 /* - Links - */
 .div-links {
 	gap: 7px;
