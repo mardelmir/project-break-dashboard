@@ -119,7 +119,7 @@ Crea una página que tendrá lo siguiente:
 - La URL base es `http` cámbiala desde el inicio por `https` para no tener problemas en el futuro de bloqueos de seguridad.
 - Usa `promesas` o `ASYNC/AWAIT` para crear la asincronía en las peticiopnes `fetch`
 - Piensa si necesitas solo un endpoint o varios. Revisa que trae cada petición.
-- Estructura bien tu código 
+- Estructura bien tu código.
 
 ## Imagenes random background:
 

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
     <title>Weather</title>
 </head>
+
 <body>
     <header>
         <nav class="nav">
@@ -16,7 +18,17 @@
             <a href="./weather.html">Weather</a>
         </nav>
     </header>
+    <main class="main">
+        <div class="div-weather">
+            <div id="locationW"></div>
+            <div id="currentW">
+                <div id="currentDetailedW"></div>
+            </div>
+            <ul id="hourForecast"></ul>
+        </div>
+    </main>
     <script src="./js/background.js"></script>
     <script src="./js/weather.js"></script>
 </body>
+
 </html>
