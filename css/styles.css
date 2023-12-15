@@ -162,7 +162,7 @@ h3 {
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	position: fixed;
+	/* position: fixed; */
 	gap: 10px;
 }
 
@@ -191,7 +191,7 @@ a {
 }
 
 .btn {
-	padding: 5px 7px;
+	padding: 7px 10px;
 	border: none;
 	background-color: black;
 	border-radius: 5px;
@@ -209,6 +209,8 @@ a {
 input {
 	border: .5px solid black;
 	border-radius: 3px;
+	padding: 5px;
+	margin: 2px 0px;
 	font-family: 'Quicksand', sans-serif;
 }
 
@@ -221,10 +223,23 @@ input:focus {
 /* - Index - */
 .main {
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
 	align-items: center;
 	flex-wrap: wrap;
 	height: 100vh;
+}
+
+/* .clock {
+	box-sizing: border-box;
+	width: 100%;
+} */
+
+.index-content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	box-sizing: border-box;
+	width: 100%;
 }
 
 .div-clock,
@@ -236,9 +251,11 @@ input:focus {
 	align-items: center;
 	flex-wrap: wrap;
 	justify-content: center;
+	width: 400px;
 	line-height: 25px;
 	background-color: rgba(174, 193, 201, 0.45);
 	padding: 20px 25px;
+	margin: 20px;
 	border-radius: 10px;
 }
 
@@ -249,19 +266,16 @@ input:focus {
 	width: max-content;
 }
 
-.div-clock p {
-	padding: 5px;
-}
-
 #time-date {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin: 15px 0px;
 	font-family: 'Poppins', sans-serif;
 }
 
 .time {
-	margin-top: 20px;
+	margin-top: 10px;
 	font-size: 50px;
 }
 
@@ -271,7 +285,6 @@ input:focus {
 }
 
 #quote {
-	margin-top: 10px;
 	font-size: 16px;
 	text-align: center;
 }
@@ -280,7 +293,6 @@ input:focus {
 .div-weather {
 	align-items: start;
 	gap: 15px;
-	width: 500px;
 }
 
 #weatherLocation {
@@ -301,7 +313,7 @@ input:focus {
 	gap: 20px;
 }
 
-#currentWeather > p {
+#currentWeather>p {
 	font-size: 25px;
 }
 
@@ -314,7 +326,7 @@ input:focus {
 	width: 100%;
 }
 
-.div-forecast > p{
+.div-forecast>p {
 	font-family: 'Poppins', sans-serif;
 }
 
@@ -322,6 +334,7 @@ input:focus {
 	display: flex;
 	box-sizing: border-box;
 	width: 100%;
+	margin-top: 10px;
 	overflow: scroll;
 }
 
@@ -337,28 +350,71 @@ input:focus {
 }
 
 /* - Links - */
-.div-links {
+.link-input {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+#linkList {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	gap: 7px;
+	max-height: 250px;
+	overflow: scroll;
+	margin-top: 20px;
 }
 
-.div-links:focus-within{
-
+.link {
+	display: flex;
+	margin-top: 10px
 }
 
-.delete-link:hover {
+.word {
+	padding: 10px 15px;
+	border-radius: 5px;
+	background-color: rgba(124, 194, 255, .450);
+}
+
+.delete-link-btn {
+	border: transparent;
+	border-radius: 5px;
+	background-color: rgba(255, 124, 124, 0.6);
+	height: fit-content;
+	position: relative;
+	top: -7px;
+	right: 10px;
+}
+
+.delete-link-btn:hover {
 	cursor: pointer;
 }
 
-
 /* - Password - */
+.password-tittles {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
 .div-password h3 {
-	margin-top: 10px;
+	margin-top: 15px;
 }
 
 .div-password h3:hover {
 	color: rgb(18, 112, 195);
 	cursor: pointer;
+}
+
+.div-password input {
+	margin: 2px 0px 2px 15px;
+}
+
+.password-tittles > p,
+#custom > p {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .div-btn {
@@ -369,11 +425,11 @@ input:focus {
 }
 
 #generated-password {
-	display: flex;
-	flex-direction: column;
-	align-self: start;
-	margin: 10px 20px 0px 20px;
-	max-width: max-content;
+	margin-top: 10px;
+	box-sizing: border-box;
+	width: 100%;
+	overflow: scroll;
+	text-align: center;
 }
 
 #warning {
@@ -384,51 +440,67 @@ input:focus {
 }
 
 
+@media (max-width=900px) {
+	.index-content {
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+	}
+}
+
+
+
 /* - GLOWBUTTON - */
 .glowbutton {
-	color:white;
+	color: white;
 	border: none;
 	background-color: black;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
+	cursor: pointer;
+	position: relative;
+	z-index: 1;
 }
 
 .glowbutton:before {
-    content: "";
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    position: absolute;
-    z-index: -1;
-    top: -2px;
-    left: -2px;
-    background-size: 400%;
-    border-radius: 4px;
-    filter: blur(3px);
-    opacity: 1;
-    animation: glowing 20s linear infinite;
-    transition: opacity .3s ease-in-out;
+	content: "";
+	background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	position: absolute;
+	z-index: -1;
+	top: -2px;
+	left: -2px;
+	background-size: 400%;
+	border-radius: 4px;
+	filter: blur(3px);
+	opacity: 1;
+	animation: glowing 20s linear infinite;
+	transition: opacity .3s ease-in-out;
 }
 
 .glowbutton:after {
 	content: "";
-    background: #111;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    border-radius: 4px;
-    position: absolute;
-    z-index: -1;
+	background: #111;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	border-radius: 4px;
+	position: absolute;
+	z-index: -1;
 }
 
 @keyframes glowing {
-    0% { background-position: 0 0}
+	0% {
+		background-position: 0 0
+	}
 
-    50% {background-position: 400% 0}
+	50% {
+		background-position: 400% 0
+	}
 
-    100% {background-position: 0 0}
+	100% {
+		background-position: 0 0
+	}
 }
 
 /* background: linear-gradient(1turn,#bacc5b,#25c2a3 50.33%,#13c1ac); */

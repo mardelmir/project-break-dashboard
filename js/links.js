@@ -1,10 +1,5 @@
 const savedList = document.getElementById('linkList')
 
-document.getElementById('clear').addEventListener('click', () => {
-    localStorage.clear()
-    location.reload()
-})
-
 const saveLink = () => {
     const linkName = document.getElementById('link-name').value
     const linkUrl = document.getElementById('link-URL').value
@@ -12,7 +7,7 @@ const saveLink = () => {
         name: linkName,
         url: linkUrl
     }
-
+    
     if (!localStorage.links) {
         const savedArray = JSON.stringify([newLink])
         localStorage.setItem('links', savedArray)
@@ -29,11 +24,18 @@ const printLink = () => {
     savedLinks.forEach(link => {
         const { name, url } = link
         savedList.innerHTML += `
-        <li>
-            <a href="${url}" target="_blank">${name}</a>
-            <button class="delete-link-btn" onclick="deleteLink('${name}', '${url}')">x</button>
+        <li class="link">
+        <div class="word">
+        <a href="${url}" target="_blank">${name}</a>
+        </div>
+        <button class="delete-link-btn" onclick="deleteLink('${name}', '${url}')">x</button>
         </li>`
     })
+}
+
+const clearLinks = () => {
+    localStorage.clear()
+    location.reload()
 }
 
 const deleteLink = (removeName, removeUrl) => {
