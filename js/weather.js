@@ -31,6 +31,7 @@ const printCurrentWeather = (current) => {
     currentDiv.innerHTML = `
         <img src="https:${current.icon}" alt="${current.text}" />
         <p>${current.temp} ºC</p>
+        <img src="../assets/img/degree.png" alt="degree" class="icon"/>
         <div class="detailed-weather">
             <p>Precipitación: ${current.cloud}%</p>
             <p>Humedad: ${current.humidity}%</p>
