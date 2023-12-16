@@ -18,73 +18,73 @@
             <a href="./weather.html">Weather</a>
         </nav>
     </header>
-    <main class="main">
+    <main class="main-index">
         <section class="clock">
             <div id="time-date"></div>
         </section>
         <div class="index-content">
             <section class="links">
-                <div class="div-links">
-                    <h2>Enlaces de interés</h2>
-                    <input id="link-name" class="link-input" type="text" placeholder="Nombre del enlace" required>
-                    <input id="link-URL" class="link-input" type="url" placeholder="URL del enlace" required>
-                    <div class="div-btn">
-                        <button id="save-link-btn" class="btn" onclick="saveLink()">Añadir enlace</button>
-                        <button id="clear" class="btn" onclick="clearLinks()">Borrar todo</button>
+                <div class="div-transparent">
+                    <div class="div-links">
+                        <h2>Enlaces de interés</h2>
+                        <input id="link-name" class="link-input" type="text" placeholder="Nombre del enlace" required>
+                        <input id="link-URL" class="link-input" type="url" placeholder="URL del enlace" required>
+                        <div class="div-btn">
+                            <button id="save-link-btn" class="btn" onclick="saveLink()">Añadir enlace</button>
+                            <button id="clear" class="btn" onclick="clearLinks()">Borrar todo</button>
+                        </div>
                     </div>
                     <ul id="linkList"></ul>
                 </div>
             </section>
-            <div class="index-left">
-                <section class="weather">
-                    <div class="div-weather">
-                        <div id="weatherLocation"></div>
-                        <div id="currentWeather"></div>
-                        <div class="div-forecast">
-                            <p>Predición horaria</p>
-                            <ul id="hourForecast"></ul>
-                        </div>
+            <section class="weather">
+                <div class="div-weather">
+                    <div id="weatherLocation"></div>
+                    <div id="currentWeather"></div>
+                    <div class="div-forecast">
+                        <p>Predición horaria</p>
+                        <ul id="hourForecast"></ul>
                     </div>
-                </section>
-                <section class="password">
-                    <div class="div-password">
-                        <div class="password-tittles">
-                            <h2>Generador de contraseñas seguras</h2>
-                            <p>Número de caracteres de tu contraseña
-                                <input id="passwordInput" type="number" min="12" max="50" value="12" required>
-                            </p>
-                            <h3 onclick="show()">Personalización de la contraseña (opcional)</h3>
-                        </div>
-                        <div id="custom" class="hidden">
-                            <p>
-                                Número mínimo de caracteres en mayúsculas
-                                <input id="mayusInput" type="number" min="0" max="50" value="0">
-                            </p>
-                            <p>
-                                Número mínimo de caracteres en minúsculas
-                                <input id="minusInput" type="number" min="0" max="50" value="0">
-                            </p>
-                            <p>
-                                Número mínimo de caracteres numéricos
-                                <input id="numberInput" type="number" min="0" max="50" value="0">
-                            </p>
-                            <p>
-                                Número mínimo de caracteres de símbolos
-                                <input id="symbolInput" type="number" min="0" max="50" value="0">
-                            </p>
-                        </div>
-                        <div class="div-btn">
-                            <button class="btn" type="button" onclick="passwordGenerator()">Generar contraseña</button>
-                            <button class="btn" type="button" onclick="resetPassword()">Borrar</button>
-                        </div>
-                        <div id="warning"></div>
-                        <div id="generated-password"></div>
+                </div>
+            </section>
+            <div class="spacer"></div>
+            <section class="password">
+                <div class="div-password">
+                    <div class="password-tittles">
+                        <h2>Generador de contraseñas seguras</h2>
+                        <p>Número de caracteres de tu contraseña
+                            <input id="passwordInput" type="number" min="12" max="50" value="12" required>
+                        </p>
+                        <h3 onclick="show()">Personalización de la contraseña (opcional)</h3>
                     </div>
-                </section>
-            </div>
+                    <div id="custom" class="hidden">
+                        <p>
+                            Número mínimo de caracteres en mayúsculas
+                            <input id="mayusInput" type="number" min="0" max="50" value="0">
+                        </p>
+                        <p>
+                            Número mínimo de caracteres en minúsculas
+                            <input id="minusInput" type="number" min="0" max="50" value="0">
+                        </p>
+                        <p>
+                            Número mínimo de caracteres numéricos
+                            <input id="numberInput" type="number" min="0" max="50" value="0">
+                        </p>
+                        <p>
+                            Número mínimo de caracteres de símbolos
+                            <input id="symbolInput" type="number" min="0" max="50" value="0">
+                        </p>
+                    </div>
+                    <div class="div-btn">
+                        <button class="btn" type="button" onclick="passwordGenerator()">Generar contraseña</button>
+                        <button class="btn" type="button" onclick="resetPassword()">Borrar</button>
+                    </div>
+                    <div id="warning"></div>
+                    <div id="generated-password" class="hidden"></div>
+                </div>
+            </section>
         </div>
     </main>
-
     <script src="./js/background.js"></script>
     <script src="./js/clock.js"></script>
     <script src="./js/weather.js"></script>

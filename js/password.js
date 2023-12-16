@@ -69,6 +69,7 @@ const customPassword = (input, mayus, minus, number, symbol) => {
 }
 
 const printPassword = (passwordArray) => {
+    passwordDiv.classList.remove('hidden')
     passwordDiv.innerHTML = `
         <p class="bold">Contraseña generada</p>
         <p class="important">${passwordArray.join('')}</p>`}

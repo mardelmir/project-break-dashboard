@@ -3,11 +3,12 @@ const savedList = document.getElementById('linkList')
 const saveLink = () => {
     const linkName = document.getElementById('link-name').value
     const linkUrl = document.getElementById('link-URL').value
+    if (!linkName || !linkUrl) {return}
+
     const newLink = {
         name: linkName,
         url: linkUrl
     }
-    
     if (!localStorage.links) {
         const savedArray = JSON.stringify([newLink])
         localStorage.setItem('links', savedArray)
