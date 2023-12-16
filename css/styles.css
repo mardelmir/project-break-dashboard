@@ -224,23 +224,22 @@ input:focus {
 .main {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	flex-wrap: wrap;
 	height: 100vh;
 }
 
-/* .clock {
+.clock {
 	box-sizing: border-box;
 	width: 100%;
-} */
+	margin: 20px 0px;
+	order: 1;
+}
 
 .index-content {
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	box-sizing: border-box;
-	width: 100%;
+	justify-content: space-around;
+	order: 2;
 }
+
 
 .div-clock,
 .div-weather,
@@ -410,8 +409,8 @@ input:focus {
 	margin: 2px 0px 2px 15px;
 }
 
-.password-tittles > p,
-#custom > p {
+.password-tittles>p,
+#custom>p {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -440,18 +439,17 @@ input:focus {
 }
 
 
-@media (max-width=900px) {
+@media (max-width = 900px) {
 	.index-content {
+		display: flex;
 		flex-direction: column;
-		align-items: center;
-		justify-content: space-around;
 	}
 }
 
 
 
 /* - GLOWBUTTON - */
-.glowbutton {
+/* .glowbutton {
 	color: white;
 	border: none;
 	background-color: black;
@@ -501,7 +499,7 @@ input:focus {
 	100% {
 		background-position: 0 0
 	}
-}
+} */
 
 /* background: linear-gradient(1turn,#bacc5b,#25c2a3 50.33%,#13c1ac); */
 
