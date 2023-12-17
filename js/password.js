@@ -1,7 +1,8 @@
+const passwordInput = document.getElementById('passwordInput')
 const passwordDiv = document.getElementById('generated-password')
 const warningDiv = document.getElementById('warning')
 
-const show = () => {document.getElementById('custom').classList.toggle('hidden')}
+const show = () => { document.getElementById('custom').classList.toggle('hidden') }
 
 const mayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
 const minus = "abcdefghijklmnopqrstuvwxyz".split('')
@@ -10,11 +11,11 @@ const symbol = "!@#$%^&*()-_=+".split('')
 const typesArray = [mayus, minus, number, symbol]
 
 const passwordGenerator = () => {
-    const inputLength = +document.getElementById('passwordInput').value
-    const mayusLength = +document.getElementById('mayusInput').value
-    const minusLength = +document.getElementById('minusInput').value
-    const numberLength = +document.getElementById('numberInput').value
-    const symbolLength = +document.getElementById('symbolInput').value
+    const inputLength = +passwordInput.value
+    const mayusLength = +document.querySelectorAll('.custom-input')[0].value
+    const minusLength = +document.querySelectorAll('.custom-input')[1].value
+    const numberLength = +document.querySelectorAll('.custom-input')[2].value
+    const symbolLength = +document.querySelectorAll('.custom-input')[3].value
     warningDiv.innerHTML = ''
 
     if (!inputLength) {
@@ -72,6 +73,14 @@ const printPassword = (passwordArray) => {
     passwordDiv.classList.remove('hidden')
     passwordDiv.innerHTML = `
         <p class="bold">Contraseña generada</p>
-        <p class="important">${passwordArray.join('')}</p>`}
+        <p class="bold important">${passwordArray.join('')}</p>`
+}
 
-const resetPassword = () => { location.reload() }
+const resetPassword = () => {
+    passwordInput.value = '12'
+    const customInput = document.querySelectorAll('.custom-input')
+    for (const input of customInput) {input.value = '0'}
+    passwordDiv.innerHTML = ''
+    warningDiv.innerHTML = ''
+    passwordDiv.classList.add('hidden')
+}

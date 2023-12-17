@@ -3,7 +3,7 @@ const savedList = document.getElementById('linkList')
 const saveLink = () => {
     const linkName = document.getElementById('link-name').value
     const linkUrl = document.getElementById('link-URL').value
-    if (!linkName || !linkUrl) {return}
+    if (!linkName || !linkUrl) { return }
 
     const newLink = {
         name: linkName,
@@ -26,17 +26,19 @@ const printLink = () => {
         const { name, url } = link
         savedList.innerHTML += `
         <li class="link">
-        <div class="word">
-        <a href="${url}" target="_blank">${name}</a>
-        </div>
-        <button class="delete-link-btn" onclick="deleteLink('${name}', '${url}')">x</button>
+            <div class="word">
+                <a href="${url}" target="_blank">${name}</a>
+            </div>
+            <button class="delete-link-btn" onclick="deleteLink('${name}', '${url}')">x</button>
         </li>`
     })
 }
 
 const clearLinks = () => {
-    localStorage.clear()
-    location.reload()
+    localStorage.removeItem('links')
+    savedList.innerHTML = ''
+    document.getElementById('link-name').value = ''
+    document.getElementById('link-URL').value = ''
 }
 
 const deleteLink = (removeName, removeUrl) => {

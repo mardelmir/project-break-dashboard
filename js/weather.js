@@ -26,12 +26,12 @@ const printCurrentWeather = (current) => {
 
     locationDiv.innerHTML = `
         <p>Sevilla/Andalucía</p>
-        <p>${current.text}</p>`
+        <p class="important">${current.text}</p>`
 
     currentDiv.innerHTML = `
         <img src="https:${current.icon}" alt="${current.text}" />
         <p>${current.temp} ºC</p>
-        <img src="../assets/img/degree.png" alt="degree" class="icon"/>
+        <img src="../assets/img/degree.png" alt="degree" class="black-icon"/>
         <div class="detailed-weather">
             <p>Precipitación: ${current.cloud}%</p>
             <p>Humedad: ${current.humidity}%</p>

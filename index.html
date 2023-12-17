@@ -22,6 +22,9 @@
             <a href="./weather.html">
                 <img src="./assets/img/weather.png" alt="weather" class="icon" /></a>
         </nav>
+        <div id="mode-btn" class="mode-btn" onclick="toggleMode()">
+            <div class="circle"></div>
+        </div>
     </header>
     <main class="main-index">
         <section class="clock">
@@ -67,19 +70,19 @@
                     <div id="custom" class="hidden">
                         <p>
                             Número mínimo de caracteres en mayúsculas
-                            <input id="mayusInput" type="number" min="0" max="50" value="0">
+                            <input id="mayusInput" class="custom-input" type="number" min="0" max="50" value="0">
                         </p>
                         <p>
                             Número mínimo de caracteres en minúsculas
-                            <input id="minusInput" type="number" min="0" max="50" value="0">
+                            <input id="minusInput" class="custom-input" type="number" min="0" max="50" value="0">
                         </p>
                         <p>
                             Número mínimo de caracteres numéricos
-                            <input id="numberInput" type="number" min="0" max="50" value="0">
+                            <input id="numberInput" class="custom-input" type="number" min="0" max="50" value="0">
                         </p>
                         <p>
                             Número mínimo de caracteres de símbolos
-                            <input id="symbolInput" type="number" min="0" max="50" value="0">
+                            <input id="symbolInput" class="custom-input" type="number" min="0" max="50" value="0">
                         </p>
                     </div>
                     <div class="div-btn">
