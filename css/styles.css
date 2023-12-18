@@ -167,18 +167,19 @@ h3 {
 	justify-content: center;
 	align-items: center;
 	background-color: rgba(255, 255, 255, 0.6);
-	/* position: fixed; */
+	backdrop-filter: blur(25px);
+	position: fixed;
+	z-index: 3;
 	top: 10px;
 	left: 10px;
 	gap: 10px;
-	backdrop-filter: blur(25px);
+	border-radius: 10px;
+	cursor: pointer;
 }
 
-a {
-	gap: 5px;
-	text-decoration: none;
-	color: black;
-	padding: 15px;
+.nav>img {
+	width: 20px;
+	padding: 10px;
 }
 
 /* .mode-btn {
@@ -192,7 +193,7 @@ a {
 .circle {
 	width: 30px;
 	height: 30px;
-	border-radius: 50%;
+	border-radius: 10px;
 	background-color: rgba(255, 255, 255, 0.6);
 	backdrop-filter: blur(25px);
 	background-image: url(../assets/img/sun.png);
@@ -200,26 +201,34 @@ a {
 	background-position: center;
 	background-repeat: no-repeat;
 	transition: transform .5s ease-out, background-color .5s ease-out;
+	position: fixed;
+	top: 10px;
+	right: 10px;
 }
 
-.circle:hover {
-	box-shadow: 0px 0px 10px 5px #9ac4fe;
+.circle:hover,
+.nav:hover {
+	box-shadow: 0px 0px 10px 5px #0080DF;
+}
+
+a {
+	gap: 5px;
+	text-decoration: none;
+	color: black;
+	padding: 10px;
 }
 
 .icon {
 	width: 25px;
+	filter: invert(29%) sepia(85%) saturate(1611%) hue-rotate(186deg) brightness(102%) contrast(101%);
 }
 
 .bold {
-	font-weight: 500;
+	font-weight: 600;
 }
 
 .important {
-	color: rgb(0, 101, 202);
-}
-
-.hidden {
-	display: none;
+	color: #0080DF;
 }
 
 .div-btn {
@@ -232,7 +241,7 @@ a {
 .btn {
 	padding: 7px 10px;
 	border: none;
-	background-color: black;
+	background-color: rgba(0, 0, 0, 0.85);
 	border-radius: 5px;
 	color: white;
 	font-family: 'Quicksand', sans-serif;
@@ -255,7 +264,11 @@ input {
 
 input:focus {
 	outline: none;
-	border: 2px solid rgba(124, 194, 255);
+	border: 2px solid #86DAFF;
+}
+
+.hidden {
+	display: none;
 }
 
 .main-index,
@@ -272,14 +285,19 @@ input:focus {
 }
 
 /* - Dark Mode - */
+.dark-mode .nav {
+	background-color: transparent;
+}
+
 .dark-mode .circle {
 	background-image: url(../assets/img/moon.png);
 	background-color: transparent;
 }
 
+.dark-mode .nav:hover,
 .dark-mode .circle:hover {
 	background-color: transparent;
-	box-shadow: 0px 0px 10px 5px #D6B3FF;
+	box-shadow: 0px 0px 10px 5px #86DAFF;
 }
 
 .dark-mode .div-clock,
@@ -288,24 +306,29 @@ input:focus {
 .dark-mode .div-password {
 	color: white;
 	background-color: rgba(37, 43, 74, 0.4);
-	border: .5px solid white;
+	border: .5px solid rgba(255, 255, 255, 0.75);
 }
 
 .dark-mode .icon {
-	/* filter: invert(68%) sepia(64%) saturate(453%) hue-rotate(209deg) brightness(101%) contrast(104%); */
-	filter: invert(99%) sepia(55%) saturate(1128%) hue-rotate(73deg) brightness(105%) contrast(109%);
+	filter: invert(75%) sepia(64%) saturate(1727%) hue-rotate(178deg) brightness(112%) contrast(102%);
 }
 
-.dark-mode .black-icon {
+.dark-mode .black-icon,
+.dark-mode .nav>img {
 	filter: invert();
 }
 
 .dark-mode input:focus {
-	border: 2px solid #5cfcd1;
+	border: 2px solid #86DAFF;
 }
 
-.dark-mode .btn {
-	background-color: #a4fffa88;
+.dark-mode .btn,
+.dark-mode .delete-link-btn {
+	background-color: #86dbffd5;
+}
+
+.dark-mode .link button {
+	color: black;
 }
 
 .dark-mode .clock {
@@ -314,18 +337,18 @@ input:focus {
 
 .dark-mode .important,
 .dark-mode .div-password h3:hover {
-	color: #5cfcd1;
+	color: #86DAFF;
 }
 
 .dark-mode .now {
-	background-color: #a4ffe765;
+	background-color: #86dbff83;
 }
 
 /* - Index - */
 .clock {
 	box-sizing: border-box;
 	width: 100%;
-	margin: 40px 0px 10px 0px;
+	margin: 45px 0px 10px 0px;
 	order: 1;
 }
 
@@ -364,11 +387,11 @@ input:focus {
 	line-height: 25px;
 	background-color: rgba(255, 255, 255, 0.6);
 	backdrop-filter: blur(25px);
+	border: .5px solid rgba(0, 0, 0, 0.75);
+	border-radius: 10px;
 	padding: 20px 25px;
 	margin: 20px;
-	border-radius: 10px;
 }
-
 
 /* - Clock - */
 .div-clock {
@@ -397,6 +420,63 @@ input:focus {
 #quote {
 	font-size: 16px;
 	text-align: center;
+}
+
+/* - Links - */
+.div-transparent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: min-content;
+}
+
+.link-input {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+#linkList {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 30px;
+	width: 90%;
+	height: 300px;
+	overflow: scroll;
+}
+
+.link {
+	display: flex;
+	height: fit-content;
+	margin-top: 10px;
+}
+
+.link button {
+	color: white;
+}
+
+.word {
+	padding: 10px 7px;
+	border: .5px solid rgba(0, 0, 0, 0.75);
+	border-radius: 5px;
+	background-color: rgba(255, 255, 255, 0.8);
+	backdrop-filter: blur(25px);
+}
+
+.delete-link-btn {
+	border: transparent;
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, 0.54);
+	height: fit-content;
+	position: relative;
+	top: -7px;
+	right: 10px;
+}
+
+.delete-link-btn:hover {
+	cursor: pointer;
 }
 
 /* - Weather - */
@@ -457,59 +537,10 @@ input:focus {
 
 .now {
 	color: white;
-	background-color: rgba(18, 112, 195, .400);
-}
-
-/* - Links - */
-.div-transparent {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: min-content;
-}
-
-.link-input {
-	box-sizing: border-box;
-	width: 100%;
-}
-
-#linkList {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: start;
-	gap: 7px;
-	margin: 20px 10px 20px 20px;
-	width: 85%;
-	height: 300px;
-	overflow: scroll;
-}
-
-.link {
-	display: flex;
-	height: fit-content;
-	margin-top: 10px;
-}
-
-.word {
-	padding: 10px 15px;
 	border-radius: 5px;
-	background-color: rgba(124, 194, 255, .450);
+	background-color: #007edf9b;
 }
 
-.delete-link-btn {
-	border: transparent;
-	border-radius: 5px;
-	background-color: rgba(255, 124, 124, 0.6);
-	height: fit-content;
-	position: relative;
-	top: -7px;
-	right: 10px;
-}
-
-.delete-link-btn:hover {
-	cursor: pointer;
-}
 
 /* - Password - */
 .password-tittles {
@@ -523,7 +554,7 @@ input:focus {
 }
 
 .div-password h3:hover {
-	color: rgb(0, 101, 202);
+	color: #0080DF;
 	cursor: pointer;
 }
 
@@ -552,7 +583,7 @@ input:focus {
 	max-width: 500px;
 }
 
-@media (max-width: 990px) {
+@media (max-width: 900px) {
 	.index-content {
 		flex-direction: column;
 		align-items: center;
@@ -630,38 +661,3 @@ input:focus {
 } */
 
 /* background: linear-gradient(1turn,#bacc5b,#25c2a3 50.33%,#13c1ac); */
-
-/* PALETTES */
-/* Light mode 1 blue*/
-/* --alice-blue: #e3f2fdff;
---uranian-blue: #bbdefbff;
---light-sky-blue: #90caf9ff;
---argentinian-blue: #64b5f6ff;
---argentinian-blue-2: #42a5f5ff;
---dodger-blue: #2196f3ff;
---bleu-de-france: #1e88e5ff;
---french-blue: #1976d2ff;
---green-blue: #1565c0ff;
---cobalt-blue: #0d47a1ff; */
-
-/* Light mode 2 lilac */
-/* --alice-blue: #edf2fbff;
---lavender-web: #e2eafcff;
---lavender-web-2: #d7e3fcff;
---periwinkle: #ccdbfdff;
---periwinkle-2: #c1d3feff;
---periwinkle-3: #b6ccfeff;
---jordy-blue: #abc4ffff; */
-
-/* Possible Dark mode 1 */
-/* --pale-azure: #97dffcff;
---tropical-indigo: #858ae3ff;
---iris: #613dc1ff;
---indigo: #4e148cff;
---russian-violet: #2c0735ff; */
-
-/* Possible Dark mode 2, purple */
-/* #0C134F
-#1D267D
-#5C469C
-#D4ADFC */

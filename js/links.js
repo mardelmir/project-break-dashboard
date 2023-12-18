@@ -32,6 +32,8 @@ const printLink = () => {
             <button class="delete-link-btn" onclick="deleteLink('${name}', '${url}')">x</button>
         </li>`
     })
+    document.getElementById('link-name').value = ''
+    document.getElementById('link-URL').value = ''
 }
 
 const clearLinks = () => {

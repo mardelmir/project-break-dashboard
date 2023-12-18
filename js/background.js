@@ -49,3 +49,9 @@ const toggleMode = () => {
 
 // setInterval(verifyMode, 5000)
 verifyMode()
+
+// Nav-bar
+const menuVisibility = () => {
+    const hiddenMenu = document.getElementById('hiddenMenu')
+    hiddenMenu.classList.toggle('hidden')
+}
