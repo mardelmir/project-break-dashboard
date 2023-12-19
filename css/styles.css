@@ -320,6 +320,7 @@ input:focus {
 
 .dark-mode input:focus, .dark-mode .search-bar-container:focus-within  {
 	border: 1.5px solid #86DAFF;
+	border-radius: 5px;
 }
 
 .dark-mode .btn,
