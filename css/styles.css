@@ -255,16 +255,16 @@ a {
 }
 
 input {
-	border: .5px solid black;
-	border-radius: 3px;
-	padding: 5px;
-	margin: 2px 0px;
+	border: .5px solid rgba(0, 0, 0, 0.25);
+	border-radius: 5px;
+	padding: 7px;
+	margin: 3px 0px;
 	font-family: 'Quicksand', sans-serif;
 }
 
 input:focus {
 	outline: none;
-	border: 2px solid #86DAFF;
+	border: 1.5px solid #86DAFF;
 }
 
 .hidden {
@@ -318,8 +318,8 @@ input:focus {
 	filter: invert();
 }
 
-.dark-mode input:focus {
-	border: 2px solid #86DAFF;
+.dark-mode input:focus, .dark-mode .search-bar-container:focus-within  {
+	border: 1.5px solid #86DAFF;
 }
 
 .dark-mode .btn,
@@ -338,6 +338,10 @@ input:focus {
 .dark-mode .important,
 .dark-mode .div-password h3:hover {
 	color: #86DAFF;
+}
+
+.dark-mode .search-bar-container input:focus {
+	border: none;
 }
 
 .dark-mode .now {
@@ -492,6 +496,7 @@ input:focus {
 	width: 100%;
 	background-color: white;
 	border-radius: 5px;
+	border: .5px solid rgba(0, 0, 0, 0.25);
 }
 
 .search-bar-container {
@@ -505,6 +510,7 @@ input:focus {
 .search-bar-container input {
 	width: 85%;
 	border: none;
+	padding: 5px;
 }
 
 #search-btn {
@@ -525,7 +531,7 @@ input:focus {
 
 .select-location:hover {
 	cursor: pointer;
-	background-color:#aedcff;
+	background-color: #aedcff;
 }
 
 #weatherLocation {
