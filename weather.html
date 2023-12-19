@@ -29,6 +29,13 @@
     </header>
     <main class="main">
         <div class="div-weather">
+            <div class="div-search">
+                <div class="search-bar-container">
+                    <input  type="search" placeholder="Ciudad" id="search-location">
+                    <img src="./assets/img/search.png" alt="search" id="search-btn" onclick="getLocation()"/>
+                </div>
+                <ul id="search-location-results" class="hidden"></ul>
+            </div>
             <div id="weatherLocation"></div>
             <div id="currentWeather"></div>
             <div class="div-forecast">

@@ -370,7 +370,7 @@ input:focus {
 
 .password {
 	position: relative;
-	top: -13em;
+	top: -10em;
 }
 
 .div-clock,
@@ -483,6 +483,49 @@ input:focus {
 .div-weather {
 	align-items: start;
 	gap: 15px;
+}
+
+.div-search {
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	width: 100%;
+	background-color: white;
+	border-radius: 5px;
+}
+
+.search-bar-container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.search-bar-container input {
+	width: 85%;
+	border: none;
+}
+
+#search-btn {
+	height: 20px;
+	opacity: 70%;
+	cursor: pointer;
+}
+
+#search-location-results {
+	box-sizing: border-box;
+	width: 100%;
+	background-color: white;
+	padding: 10px;
+	border-radius: 5px;
+	position: relative;
+	z-index: 1;
+}
+
+.select-location:hover {
+	cursor: pointer;
+	background-color:#aedcff;
 }
 
 #weatherLocation {
