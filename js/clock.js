@@ -1,46 +1,36 @@
-const currentDateTime = () => {
-    const date = new Date();
-    const year = date.getFullYear()
-    let month = date.getMonth()
-    let day = date.getDate()
-    let hour = date.getHours()
-    let min = date.getMinutes()
-    let sec = date.getSeconds()
-
-    if (month < 10) { month = `0${month}` }
-    if (day < 10) { day = `0${day}` }
-    if (hour < 10) { hour = `0${hour}` }
-    if (min < 10) { min = `0${min}` }
-    if (sec < 10) { sec = `0${sec}` }
+const currentTimeDate = () => {
+    const now = new Date();
+    const time = now.toLocaleTimeString(navigator.language);
+    const date = now.toLocaleDateString(navigator.language);
 
     document.getElementById('time-date').innerHTML = `
-        <span class="time">${hour}:${min}:${sec}</span>
-        <span class="date">${day}/${month}/${year}</span>`
+        <p class="time">${time}</p>
+        <p class="date">${date}</p>`
 
-    printQuote(hour)
+    printQuote(time)
 }
 
-const printQuote = (hour) => {
+const printQuote = (time) => {
     const quote = document.getElementById('quote')
 
     if (!quote) { return } else {
-        if (hour > 0 && hour <= 7) {
+        if (time >= '00:01:00' && time < '07:01:00') {
             quote.textContent = 'Es hora de dormir, ¡hasta mañana!'
-        } else if (hour > 7 && hour <= 12) {
+        } else if (time >= '07:01:00' && time < '12:01:00') {
             quote.textContent = '¡Buenos días!, desayuna fuerte y a manos a la obra'
-        } else if (hour > 12 && hour <= 14) {
+        } else if (time >= '12:01:00' && time < '14:01:00') {
             quote.textContent = 'Sigue un poco más pero no te olvides de almorzar'
-        } else if (hour > 14 && hour <= 16) {
+        } else if (time >= '14:01:00' && time < '16:01:00') {
             quote.textContent = 'Espero que hayas comido bien, recuerda beber agua'
-        } else if (hour > 16 && hour <= 18) {
+        } else if (time >= '16:01:00' && time < '18:01:00') {
             quote.textContent = 'Buenas tardes, ¡a por el último empujón!'
-        } else if (hour > 18 && hour <= 22) {
+        } else if (time >= '18:01:00' && time < '22:01:00') {
             quote.textContent = 'Esto ya son horas extra, ... piensa en parar pronto'
-        } else if (hour > 22 && hour <= 0) {
+        } else if (time >= '22:01:00' && time < '00:01:00') {
             quote.textContent = 'Buenas noches, ve cerrando y a descansar'
         }
     }
 }
 
-setInterval(currentDateTime, 1000)
-currentDateTime()
+setInterval(currentTimeDate, 1000)
+currentTimeDate()
