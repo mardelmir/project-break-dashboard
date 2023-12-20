@@ -1,8 +1,9 @@
 const passwordInput = document.getElementById('passwordInput')
+const customInput = document.querySelectorAll('.custom-input')
 const passwordDiv = document.getElementById('generated-password')
 const warningDiv = document.getElementById('warning')
 
-const show = () => { document.getElementById('custom').classList.toggle('hidden') }
+const show = () => { document.getElementById('custom').classList.toggle('-hidden') }
 
 const mayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
 const minus = "abcdefghijklmnopqrstuvwxyz".split('')
@@ -12,10 +13,10 @@ const typesArray = [mayus, minus, number, symbol]
 
 const passwordGenerator = () => {
     const inputLength = +passwordInput.value
-    const mayusLength = +document.querySelectorAll('.custom-input')[0].value
-    const minusLength = +document.querySelectorAll('.custom-input')[1].value
-    const numberLength = +document.querySelectorAll('.custom-input')[2].value
-    const symbolLength = +document.querySelectorAll('.custom-input')[3].value
+    const mayusLength = +customInput[0].value
+    const minusLength = +customInput[1].value
+    const numberLength = +customInput[2].value
+    const symbolLength = +customInput[3].value
     warningDiv.innerHTML = ''
 
     if (!inputLength) {
@@ -84,3 +85,9 @@ const resetPassword = () => {
     warningDiv.innerHTML = ''
     passwordDiv.classList.add('hidden')
 }
+
+passwordInput.addEventListener('keydown', (press) => {
+    if (press.key === 'Enter') {passwordGenerator()}})
+
+customInput.forEach(e => {e.addEventListener('keydown', (press) => {
+    if (press.key === 'Enter') {passwordGenerator()}})})

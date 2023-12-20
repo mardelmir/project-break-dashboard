@@ -140,7 +140,6 @@ body {
 	background: center/cover no-repeat fixed;
 	transition: all .5s linear;
 	font-family: 'Quicksand', sans-serif;
-	position: inherit;
 }
 
 h1,
@@ -267,7 +266,7 @@ input:focus, .div-search:focus-within {
 	border: 1.5px solid #86DAFF;
 }
 
-.hidden {
+.-hidden {
 	display: none;
 }
 
@@ -375,7 +374,7 @@ input:focus, .div-search:focus-within {
 
 .password {
 	position: relative;
-	top: -10em;
+	top: -8.5em;
 }
 
 .div-clock,
@@ -449,7 +448,7 @@ input:focus, .div-search:focus-within {
 	margin-bottom: 30px;
 	width: 90%;
 	height: 300px;
-	overflow: scroll;
+	overflow-y: scroll;
 }
 
 .link {
@@ -496,9 +495,10 @@ input:focus, .div-search:focus-within {
 	flex-direction: column;
 	box-sizing: border-box;
 	width: 100%;
-	background-color: white;
+	height: 35px;
 	border-radius: 5px;
 	border: .5px solid rgba(0, 0, 0, 0.25);
+	overflow-y: visible;
 }
 
 .search-bar-container {
@@ -506,6 +506,8 @@ input:focus, .div-search:focus-within {
 	align-items: center;
 	box-sizing: border-box;
 	width: 100%;
+	background-color: white;
+	border-radius: 5px;
 }
 
 .search-bar-container input {
@@ -525,12 +527,15 @@ input:focus, .div-search:focus-within {
 #search-location-results {
 	box-sizing: border-box;
 	width: 100%;
-	background-color: white;
 	padding: 12px;
-	border-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	color: black;
+	background-color: rgba(255, 255, 255, 0.9);
+	backdrop-filter: blur(5px);
 	position: relative;
-	top: 0px;
-	z-index: 5;
+	top: -3px;
+	z-index: 2;
 }
 
 .select-location:hover {
@@ -579,7 +584,7 @@ input:focus, .div-search:focus-within {
 	box-sizing: border-box;
 	width: 100%;
 	margin-top: 10px;
-	overflow: scroll;
+	overflow-x: scroll;
 	scroll-snap-type: x mandatory;
 }
 
@@ -604,7 +609,7 @@ input:focus, .div-search:focus-within {
 }
 
 .div-password h3 {
-	margin-top: 15px;
+	margin: 15px 0px;
 }
 
 .div-password h3:hover {
@@ -612,13 +617,18 @@ input:focus, .div-search:focus-within {
 	cursor: pointer;
 }
 
-.div-password input {
-	margin: 2px 0px 2px 15px;
+.custom, .custom p, .password-tittles p {
+	display: flex;
+	box-sizing: border-box;
+	width: 100%;
 }
 
-.password-tittles>p,
-#custom>p {
-	display: flex;
+.custom {
+	flex-direction: column;
+}
+
+.password-tittles p,
+.custom p {
 	justify-content: space-between;
 	align-items: center;
 }
@@ -627,7 +637,7 @@ input:focus, .div-search:focus-within {
 	padding: 12px;
 	box-sizing: border-box;
 	width: 100%;
-	overflow: scroll;
+	overflow-x: scroll;
 	text-align: center;
 }
 

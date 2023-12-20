@@ -1,6 +1,5 @@
 const baseUrl = 'https://api.weatherapi.com/v1'
 const apiKey = '133633a870f34925876162254231412'
-const city = 'Sevilla'
 const searchLocation = document.getElementById('search-location')
 const results = document.getElementById('search-location-results')
 
@@ -91,4 +90,6 @@ const selectLocation = async (url) => {
     catch (error) { console.log('Error al obtener los datos', error) }
 }
 
-getWeather(`${baseUrl}/forecast.json?key=${apiKey}&q=${city}&aqi=no&lang=es`)
+searchLocation.addEventListener('keydown', (press) => {if (press.key === 'Enter') {getLocation()}})
+
+getWeather(`${baseUrl}/forecast.json?key=${apiKey}&q=Sevilla&aqi=no&lang=es`)

@@ -1,8 +1,10 @@
 const savedList = document.getElementById('linkList')
+const linkNameInput = document.getElementById('link-name')
+const linkUrlInput = document.getElementById('link-URL')
 
 const saveLink = () => {
-    const linkName = document.getElementById('link-name').value
-    const linkUrl = document.getElementById('link-URL').value
+    const linkName = linkNameInput.value
+    const linkUrl = linkUrlInput.value
     if (!linkName || !linkUrl) { return }
 
     const newLink = {
@@ -56,3 +58,7 @@ const deleteLink = (removeName, removeUrl) => {
 }
 
 !localStorage.links ? savedList.innerHTML = '' : printLink()
+
+linkNameInput.addEventListener('keydown', (press) => {if (press.key === 'Enter') {saveLink()}})
+
+linkUrlInput.addEventListener('keydown', (press) => {if (press.key === 'Enter') {saveLink()}})
