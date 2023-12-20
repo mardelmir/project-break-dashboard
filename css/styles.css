@@ -262,7 +262,7 @@ input {
 	font-family: 'Quicksand', sans-serif;
 }
 
-input:focus {
+input:focus, .div-search:focus-within {
 	outline: none;
 	border: 1.5px solid #86DAFF;
 }
@@ -488,6 +488,7 @@ input:focus {
 .div-weather {
 	align-items: start;
 	gap: 15px;
+	z-index: 1;
 }
 
 .div-search {
@@ -502,14 +503,14 @@ input:focus {
 
 .search-bar-container {
 	display: flex;
-	justify-content: space-around;
 	align-items: center;
 	box-sizing: border-box;
 	width: 100%;
 }
 
 .search-bar-container input {
-	width: 85%;
+	width: 100%;
+	margin-left: 10px;
 	border: none;
 	padding: 5px;
 }
@@ -517,6 +518,7 @@ input:focus {
 #search-btn {
 	height: 20px;
 	opacity: 70%;
+	margin-right: 7px;
 	cursor: pointer;
 }
 
@@ -524,10 +526,11 @@ input:focus {
 	box-sizing: border-box;
 	width: 100%;
 	background-color: white;
-	padding: 10px;
+	padding: 12px;
 	border-radius: 5px;
 	position: relative;
-	z-index: 1;
+	top: 0px;
+	z-index: 5;
 }
 
 .select-location:hover {
@@ -577,6 +580,7 @@ input:focus {
 	width: 100%;
 	margin-top: 10px;
 	overflow: scroll;
+	scroll-snap-type: x mandatory;
 }
 
 #hourForecast li {
@@ -586,11 +590,11 @@ input:focus {
 }
 
 .now {
+	scroll-snap-align: start;
 	color: white;
 	border-radius: 5px;
 	background-color: #007edf9b;
 }
-
 
 /* - Password - */
 .password-tittles {
