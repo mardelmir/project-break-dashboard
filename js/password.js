@@ -3,7 +3,7 @@ const customInput = document.querySelectorAll('.custom-input')
 const passwordDiv = document.getElementById('generated-password')
 const warningDiv = document.getElementById('warning')
 
-const show = () => { document.getElementById('custom').classList.toggle('-hidden') }
+const show = () => { document.getElementById('custom').classList.toggle('hidden') }
 
 const mayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
 const minus = "abcdefghijklmnopqrstuvwxyz".split('')

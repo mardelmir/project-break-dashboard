@@ -46,6 +46,7 @@ const printCurrentWeather = (weather, location) => {
 
 const printHourForecast = (forecast) => {
     const forecastDiv = document.getElementById('hourForecast')
+    forecastDiv.innerHTML = ''
     forecast.forEach(hour => {
         const { time_epoch, condition, temp_c } = hour
         let hourlyPrediction = new Date(time_epoch * 1000).getHours()
@@ -90,6 +91,6 @@ const selectLocation = async (url) => {
     catch (error) { console.log('Error al obtener los datos', error) }
 }
 
-searchLocation.addEventListener('keydown', (press) => {if (press.key === 'Enter') {getLocation()}})
+searchLocation.addEventListener('keydown', (press) => { if (press.key === 'Enter') { getLocation() } })
 
 getWeather(`${baseUrl}/forecast.json?key=${apiKey}&q=Sevilla&aqi=no&lang=es`)
