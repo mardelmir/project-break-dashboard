@@ -165,14 +165,15 @@ h3 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: rgba(0, 0, 0, 0.7);
+	border: .5px solid white;
+	border-radius: 10px;
+	background-color: #007edfc4;
 	backdrop-filter: blur(25px);
 	position: fixed;
 	z-index: 3;
 	top: 15px;
 	left: 15px;
 	gap: 10px;
-	border-radius: 10px;
 	cursor: pointer;
 }
 
@@ -187,8 +188,9 @@ h3 {
 	width: 50px;
 	height: 30px;
 	padding: 1.5px;
+	border: .5px solid white;
 	border-radius: 50px;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: #007edfc4;
 	position: fixed;
 	top: 15px;
 	right: 15px;
@@ -219,7 +221,7 @@ a {
 }
 
 .nav .icon {
-	filter: invert(72%) sepia(27%) saturate(4012%) hue-rotate(184deg) brightness(101%) contrast(85%);
+	filter: invert(95%) sepia(61%) saturate(6295%) hue-rotate(175deg) brightness(100%) contrast(102%);
 }
 
 .bold {
@@ -240,7 +242,7 @@ a {
 .btn {
 	padding: 7px 10px;
 	border: none;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: #007edfc4;
 	border-radius: 5px;
 	color: white;
 	font-family: 'Quicksand', sans-serif;
@@ -282,7 +284,8 @@ input:focus,
 
 /* - Dark Mode - */
 .dark-mode .nav,
-.dark-mode .mode-container {
+.dark-mode .mode-container,
+.dark-mode .delete-link-btn {
 	background-color: #86dbff83;
 	backdrop-filter: blur(25px);
 }
@@ -315,8 +318,7 @@ input:focus,
 	border-radius: 5px;
 }
 
-.dark-mode .btn,
-.dark-mode .delete-link-btn {
+.dark-mode .btn {
 	background-color: #86dbffd5;
 }
 
@@ -331,6 +333,20 @@ input:focus,
 .dark-mode .important,
 .dark-mode .div-password h3:hover {
 	color: #86DAFF;
+}
+
+.dark-mode a {
+	color: white;
+}
+
+.dark-mode .word {
+	background-color: rgba(104, 110, 139, 0.8);
+	border: .5px solid rgba(255, 255, 255, 0.5);
+}
+
+.dark-mode .link button {
+	color: white;
+	border: none;
 }
 
 .dark-mode .search-bar-container input:focus {
@@ -383,7 +399,7 @@ input:focus,
 	line-height: 25px;
 	background-color: rgba(255, 255, 255, 0.6);
 	backdrop-filter: blur(25px);
-	border: .5px solid rgba(0, 0, 0, 0.25);
+	border: .5px solid white;
 	border-radius: 10px;
 	padding: 20px 25px;
 	margin: 20px;
@@ -456,7 +472,6 @@ input:focus,
 
 .word {
 	padding: 10px 7px;
-	border: .5px solid rgba(0, 0, 0, 0.25);
 	border-radius: 5px;
 	background-color: rgba(255, 255, 255, 0.8);
 	backdrop-filter: blur(25px);
@@ -465,14 +480,13 @@ input:focus,
 .delete-link-btn {
 	border: transparent;
 	border-radius: 5px;
-	background-color: rgba(0, 0, 0, 0.65);
+	background-color: #007edfc4;
+	border: .5px solid rgba(255, 255, 255, 0.8);
+	/* background-color: rgba(0, 0, 0, 0.65); */
 	height: fit-content;
 	position: relative;
 	top: -7px;
 	right: 10px;
-}
-
-.delete-link-btn:hover {
 	cursor: pointer;
 }
 
@@ -591,7 +605,7 @@ input:focus,
 	scroll-snap-align: start;
 	color: white;
 	border-radius: 5px;
-	background-color: #007edf9b;
+	background-color: #007edf94;
 }
 
 /* - Password - */
