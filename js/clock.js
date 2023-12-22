@@ -1,7 +1,16 @@
 const currentTimeDate = () => {
     const now = new Date();
-    const time = now.toLocaleTimeString(navigator.language);
-    const date = now.toLocaleDateString(navigator.language);
+    const time = now.toLocaleTimeString(navigator.language, {
+        hour: '2-digit',
+        minute: '2-digit', 
+        second: '2-digit'
+    });
+    const date = now.toLocaleDateString(navigator.language, {
+        year:'numeric',
+        month:'2-digit',
+        day: '2-digit',
+        weekday: 'long'
+    });
 
     document.getElementById('time-date').innerHTML = `
         <p class="time">${time}</p>

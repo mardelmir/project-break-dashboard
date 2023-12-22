@@ -134,7 +134,7 @@ table {
 
 /* --- */
 
-/* - General - */
+/* - General: common elements - */
 body {
 	min-height: 100%;
 	background: center/cover no-repeat fixed;
@@ -215,13 +215,13 @@ a {
 	padding: 10px;
 }
 
+.nav .icon {
+	filter: invert(95%) sepia(61%) saturate(6295%) hue-rotate(175deg) brightness(100%) contrast(102%);
+}
+
 .icon {
 	width: 25px;
 	filter: invert(29%) sepia(85%) saturate(1611%) hue-rotate(186deg) brightness(102%) contrast(101%);
-}
-
-.nav .icon {
-	filter: invert(95%) sepia(61%) saturate(6295%) hue-rotate(175deg) brightness(100%) contrast(102%);
 }
 
 .bold {
@@ -263,10 +263,13 @@ input {
 	font-family: 'Quicksand', sans-serif;
 }
 
-input:focus,
-.div-search:focus-within {
+input:focus {
 	outline: none;
 	border: 1.5px solid #86DAFF;
+}
+
+.blur {
+	opacity: 0;
 }
 
 .main-index,
@@ -428,6 +431,7 @@ input:focus,
 .date {
 	margin-top: 10px;
 	font-size: 20px;
+	text-transform: capitalize;
 }
 
 #quote {
