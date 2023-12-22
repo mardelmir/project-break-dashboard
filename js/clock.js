@@ -41,5 +41,13 @@ const printQuote = (time) => {
     }
 }
 
+const alarm = () => {
+    const alarmInput = document.getElementById('alarm-input').value
+    console.log(alarmInput)
+}
+
+document.getElementById('alarm-btn').addEventListener('click', alarm)
+
+
 setInterval(currentTimeDate, 1000)
 currentTimeDate()

@@ -137,7 +137,7 @@ table {
 body {
 	min-height: 100%;
 	background: center/cover no-repeat fixed;
-	transition: all .5s ease-out;
+	transition: all 1s ease-in-out;
 	font-family: 'Quicksand', sans-serif;
 }
 
@@ -322,8 +322,8 @@ input:focus {
 	border-radius: 5px;
 }
 
-.dark-mode .btn {
-	background-color: #86dbffd5;
+.dark-mode .btn:focus {
+	outline: none;
 }
 
 .dark-mode .link button {

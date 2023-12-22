@@ -3,8 +3,10 @@ const apiKey = '133633a870f34925876162254231412'
 const searchLocation = document.getElementById('search-location')
 const results = document.getElementById('search-location-results')
 
+// ARREGLAR
 searchLocation.addEventListener('blur', ()=>{results.classList.add('blur')})
 searchLocation.addEventListener('focus', ()=>{results.classList.remove('blur')})
+document.getElementById('search-btn').addEventListener('click', ()=>{results.classList.remove('blur')})
 
 const getLocation = () => {
     results.innerHTML = ''
