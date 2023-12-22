@@ -137,7 +137,7 @@ table {
 body {
 	min-height: 100%;
 	background: center/cover no-repeat fixed;
-	transition: all .5s linear;
+	transition: all .5s ease-out;
 	font-family: 'Quicksand', sans-serif;
 }
 
@@ -401,7 +401,7 @@ input:focus {
 	width: 400px;
 	height: fit-content;
 	line-height: 25px;
-	background-color: rgba(255, 255, 255, 0.6);
+	background-color: rgba(255, 255, 255, 0.7);
 	backdrop-filter: blur(25px);
 	border: .5px solid white;
 	border-radius: 10px;
@@ -487,7 +487,6 @@ input:focus {
 	border-radius: 5px;
 	background-color: #007edfc4;
 	border: .5px solid rgba(255, 255, 255, 0.8);
-	/* background-color: rgba(0, 0, 0, 0.65); */
 	height: fit-content;
 	position: relative;
 	top: -7px;
@@ -686,60 +685,3 @@ input:focus {
 		order: 3;
 	}
 }
-
-
-
-/* - GLOWBUTTON - */
-/* .glowbutton {
-	color: white;
-	border: none;
-	background-color: black;
-	cursor: pointer;
-	position: relative;
-	z-index: 1;
-}
-
-.glowbutton:before {
-	content: "";
-	background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-	width: calc(100% + 4px);
-	height: calc(100% + 4px);
-	position: absolute;
-	z-index: -1;
-	top: -2px;
-	left: -2px;
-	background-size: 400%;
-	border-radius: 4px;
-	filter: blur(3px);
-	opacity: 1;
-	animation: glowing 20s linear infinite;
-	transition: opacity .3s ease-in-out;
-}
-
-.glowbutton:after {
-	content: "";
-	background: #111;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	border-radius: 4px;
-	position: absolute;
-	z-index: -1;
-}
-
-@keyframes glowing {
-	0% {
-		background-position: 0 0
-	}
-
-	50% {
-		background-position: 400% 0
-	}
-
-	100% {
-		background-position: 0 0
-	}
-} */
-
-/* background: linear-gradient(1turn,#bacc5b,#25c2a3 50.33%,#13c1ac); */

@@ -17,12 +17,13 @@ const passwordGenerator = () => {
     const minusLength = +customInput[1].value
     const numberLength = +customInput[2].value
     const symbolLength = +customInput[3].value
+    const typeLengthArray = [mayusLength, minusLength, numberLength, symbolLength]
     warningDiv.innerHTML = ''
 
     if (!inputLength) {
         alert('Introduce una longitud para tu contraseña')
     } else if (inputLength && (!mayusLength || mayusLength == 0) && (!minusLength || minusLength == 0) && (!numberLength || numberLength == 0) && (!symbolLength || symbolLength == 0)) { standardPassword(inputLength) }
-    else { customPassword(inputLength, mayusLength, minusLength, numberLength, symbolLength) }
+    else { customPassword(inputLength, typeLengthArray) }
 }
 
 const randomCharacterGenerator = (input) => {
@@ -31,63 +32,58 @@ const randomCharacterGenerator = (input) => {
         const typesIndex = Math.floor(Math.random() * 4)
         const characterIndex = Math.floor(Math.random() * (typesArray[typesIndex].length))
         randomArray[i] = typesArray[typesIndex][characterIndex]
-    } return randomArray
+    } return randomArray.join('')
 }
 
 const standardPassword = (input) => { printPassword(randomCharacterGenerator(input)) }
 
-const customPassword = (input, mayus, minus, number, symbol) => {
-    const arrayMayus = []
-    for (let i = 0; i < mayus; i++) {
-        const index = Math.floor(Math.random() * (typesArray[0].length))
-        arrayMayus[i] = typesArray[0][index]
-    }
-    const arrayMinus = []
-    for (let i = 0; i < minus; i++) {
-        const index = Math.floor(Math.random() * (typesArray[1].length))
-        arrayMinus[i] = typesArray[1][index]
-    }
-    const arrayNumber = []
-    for (let i = 0; i < number; i++) {
-        const index = Math.floor(Math.random() * (typesArray[2].length))
-        arrayNumber[i] = typesArray[2][index]
-    }
-    const arraySymbol = []
-    for (let i = 0; i < symbol; i++) {
-        const index = Math.floor(Math.random() * (typesArray[3].length))
-        arraySymbol[i] = typesArray[3][index]
-    }
+const customPassword = (input, typeArray) => {
+    const characterTypeArray = []
 
-    const customArray = [...arrayMayus, ...arrayMinus, ...arrayNumber, ...arraySymbol]
-    if (customArray.length > input) {
-        input = customArray.length
-        warningDiv.innerHTML = `
-        El número de caracteres personalizados supera la longitud total especificada, la contraseña generada pasa a tener ${input} caracteres. Haz scroll si no ves la contraseña completa.`
+    typeArray.forEach((typeLength, i) => {
+        const arrayLenght = []
+        for (let x = 0; x < typeLength; x++) {
+            const index = Math.floor(Math.random() * (typesArray[i].length))
+            arrayLenght[x] = typesArray[i][index]
+        }
+        arrayLenght.length !== 0 ? characterTypeArray.push(arrayLenght.join('')) : characterTypeArray
+    })
+
+    const joinedTypeArray = characterTypeArray.join('').split('')
+
+    if (joinedTypeArray.length > input) {
+        input = joinedTypeArray.length
+        warningDiv.innerText = `El número de caracteres personalizados supera la longitud total especificada, la contraseña generada pasa a tener ${input} caracteres.`
     }
-    const standardLength = input - (mayus + minus + number + symbol)
-    let cpArray = [...customArray, ...randomCharacterGenerator(standardLength)]
-    cpArray.sort(() => Math.random() - 0.5)
-    printPassword(cpArray)
+    const standardLength = input - joinedTypeArray.length
+    let finalPassword = [...joinedTypeArray, ...randomCharacterGenerator(standardLength)]
+    finalPassword.sort(() => Math.random() - 0.5)
+
+    printPassword(finalPassword.join(''))
 }
 
-const printPassword = (passwordArray) => {
+const printPassword = (password) => {
     passwordDiv.classList.remove('hidden')
     passwordDiv.innerHTML = `
         <p class="bold">Contraseña generada</p>
-        <p class="bold important">${passwordArray.join('')}</p>`
+        <p class="bold important">${password}</p>`
 }
 
 const resetPassword = () => {
     passwordInput.value = '12'
     const customInput = document.querySelectorAll('.custom-input')
-    for (const input of customInput) {input.value = '0'}
+    for (const input of customInput) { input.value = '0' }
     passwordDiv.innerHTML = ''
     warningDiv.innerHTML = ''
     passwordDiv.classList.add('hidden')
 }
 
 passwordInput.addEventListener('keydown', (press) => {
-    if (press.key === 'Enter') {passwordGenerator()}})
+    if (press.key === 'Enter') { passwordGenerator() }
+})
 
-customInput.forEach(e => {e.addEventListener('keydown', (press) => {
-    if (press.key === 'Enter') {passwordGenerator()}})})
+customInput.forEach(input => {
+    input.addEventListener('keydown', (press) => {
+        if (press.key === 'Enter') { passwordGenerator() }
+    })
+})

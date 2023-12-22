@@ -2,17 +2,19 @@ const body = document.body
 const lightArray = [
     'abstract',
     'blue',
+    'foggy',
     'haze',
-    'ice',
     'ink',
     'mountain',
     'shore',
-    'smoke'
+    'smoke',
+    'white'
 ]
 
 const darkArray = [
     'constellation',
     'dark',
+    'darkSmoke',
     'deepSpace',
     'navy',
     'nebula',
@@ -25,12 +27,12 @@ const darkArray = [
 ]
 
 const lightMode = () => {
-    const currentBackground = Math.floor(Math.random() * 8)
+    const currentBackground = Math.floor(Math.random() * 9)
     body.style.backgroundImage = `url('../assets/img/lightMode/${lightArray[currentBackground]}.jpg')`
 }
 
 const darkMode = () => {
-    const currentBackground = Math.floor(Math.random() * 11)
+    const currentBackground = Math.floor(Math.random() * 12)
     body.style.backgroundImage = `url('../assets/img/darkMode/${darkArray[currentBackground]}.jpg')`
 }
 
@@ -47,7 +49,7 @@ const toggleMode = () => {
     verifyMode()
 }
 
-// setInterval(verifyMode, 5000)
+setInterval(verifyMode, 15000)
 verifyMode()
 
 // Nav-bar
