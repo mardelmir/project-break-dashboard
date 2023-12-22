@@ -3,6 +3,35 @@ const apiKey = '133633a870f34925876162254231412'
 const searchLocation = document.getElementById('search-location')
 const results = document.getElementById('search-location-results')
 
+searchLocation.addEventListener('blur', ()=>{results.classList.add('blur')})
+searchLocation.addEventListener('focus', ()=>{results.classList.remove('blur')})
+
+const getLocation = () => {
+    results.innerHTML = ''
+    const searchUrl = `${baseUrl}/search.json?key=${apiKey}&q=${searchLocation.value}&aqi=no&lang=es`
+    searchLocation.value.length == 0 ? results.classList.add('hidden') : selectLocation(searchUrl)
+}
+searchLocation.addEventListener('input', getLocation)
+
+const selectLocation = async (url) => {
+    try {
+        const response = await fetch(url)
+        if (!response.ok) {
+            throw new Error('Error en la respuesta (location)', response.status)
+        }
+        const data = await response.json()
+        results.classList.remove('hidden')
+        data.forEach(option => {
+            const selectedUrl = `${baseUrl}/forecast.json?key=${apiKey}&q=${option.lat},${option.lon}&aqi=no&lang=es`
+            results.innerHTML += `
+                <li class="select-location" onclick="getWeather('${selectedUrl}')">
+                    ${option.name}, ${option.region}, ${option.country}
+                </li>`
+        })
+    }
+    catch (error) { console.log('Error al obtener los datos', error) }
+}
+
 const getWeather = async (url) => {
     try {
         const response = await fetch(url)
@@ -65,32 +94,5 @@ const printHourForecast = (forecast) => {
         if (currentHour == hourlyPrediction) { hourLi.classList.add('now') }
     })
 }
-
-const getLocation = () => {
-    const searchUrl = `${baseUrl}/search.json?key=${apiKey}&q=${searchLocation.value}&aqi=no&lang=es`
-    results.innerHTML = ''
-    selectLocation(searchUrl)
-}
-
-const selectLocation = async (url) => {
-    try {
-        const response = await fetch(url)
-        if (!response.ok) {
-            throw new Error('Error en la respuesta (location)', response.status)
-        }
-        const data = await response.json()
-        results.classList.remove('hidden')
-        data.forEach(option => {
-            const selectedUrl = `${baseUrl}/forecast.json?key=${apiKey}&q=${option.lat},${option.lon}&aqi=no&lang=es`
-            results.innerHTML += `
-                <li class="select-location" onclick="getWeather('${selectedUrl}')">
-                    ${option.name}, ${option.region}, ${option.country}
-                </li>`
-        })
-    }
-    catch (error) { console.log('Error al obtener los datos', error) }
-}
-
-searchLocation.addEventListener('keydown', (press) => { if (press.key === 'Enter') { getLocation() } })
 
 getWeather(`${baseUrl}/forecast.json?key=${apiKey}&q=Sevilla&aqi=no&lang=es`)

@@ -4,13 +4,16 @@ const linkUrlInput = document.getElementById('link-URL')
 
 const saveLink = () => {
     const linkName = linkNameInput.value
-    const linkUrl = linkUrlInput.value
+    let linkUrl = linkUrlInput.value
+
     if (!linkName || !linkUrl) { return }
+    linkUrl.includes('http://') || linkUrl.includes('https://') ? linkUrl : linkUrl = `https://${linkUrl}`
 
     const newLink = {
         name: linkName,
         url: linkUrl
     }
+
     if (!localStorage.links) {
         const savedArray = JSON.stringify([newLink])
         localStorage.setItem('links', savedArray)
@@ -59,6 +62,5 @@ const deleteLink = (removeName, removeUrl) => {
 
 !localStorage.links ? savedList.innerHTML = '' : printLink()
 
-linkNameInput.addEventListener('keydown', (press) => {if (press.key === 'Enter') {saveLink()}})
-
-linkUrlInput.addEventListener('keydown', (press) => {if (press.key === 'Enter') {saveLink()}})
+linkNameInput.addEventListener('keydown', (press) => { if (press.key === 'Enter') { saveLink() } })
+linkUrlInput.addEventListener('keydown', (press) => { if (press.key === 'Enter') { saveLink() } })
