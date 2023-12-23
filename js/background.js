@@ -28,12 +28,12 @@ const darkArray = [
 
 const lightMode = () => {
     const currentBackground = Math.floor(Math.random() * 9)
-    body.style.backgroundImage = `url('../assets/img/lightMode/${lightArray[currentBackground]}.jpg')`
+    body.style.backgroundImage = `url('./assets/img/lightMode/${lightArray[currentBackground]}.jpg')`
 }
 
 const darkMode = () => {
     const currentBackground = Math.floor(Math.random() * 12)
-    body.style.backgroundImage = `url('../assets/img/darkMode/${darkArray[currentBackground]}.jpg')`
+    body.style.backgroundImage = `url('./assets/img/darkMode/${darkArray[currentBackground]}.jpg')`
 }
 
 const verifyMode = () => {
