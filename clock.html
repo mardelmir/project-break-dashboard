@@ -32,11 +32,25 @@
             <p>Son las...</p>
             <div id="time-date"></div>
             <p id="quote"></p>
-            <form class="alarm-container">
-                <label for="alarm-input">Añadir una alarma:</label>
-                <input type="time" name="alarm" id="alarm-input">
-                <button type="button" id="alarm-btn" class="btn">+</button>
-            </form>
+            <div class="alarm-container">
+                <h3>Alarmas</h3>
+                <div class="set-alarm">
+                    <p>
+                        H: <input type="number" id="hour" min="0" max="23" required>
+                    </p>
+                    <p>
+                        M: <input type="number" id="min" min="0" max="59" required>
+                    </p>
+                    <p>
+                        S: <input type="number" id="sec" min="0" max="59" required>
+                    </p>
+                </div>
+                <div class="div-btn">
+                    <button type="button" id="alarm-btn" class="btn" onclick="setAlarm()">Añadir alarma</button>
+                    <button type="button" id="clear-alarm" class="btn" onclick="clearStoredAlarms()">Eliminar todas las alarmas</button>
+                </div>
+                <ul id="saved-alarms" class="saved-alarms"></ul>
+            </div>
         </div>
     </main>
     <script src="./js/background.js"></script>

@@ -39,8 +39,8 @@
                         <input id="link-name" class="link-input" type="text" placeholder="Nombre del enlace" required>
                         <input id="link-URL" class="link-input" type="url" placeholder="URL del enlace" required>
                         <div class="div-btn">
-                            <button id="save-link-btn" class="btn" onclick="saveLink()">Añadir enlace</button>
-                            <button id="clear" class="btn" onclick="clearLinks()">Borrar todo</button>
+                            <button type="button" id="save-link-btn" class="btn" onclick="saveLink()">Añadir enlace</button>
+                            <button type="button" id="clear" class="btn" onclick="clearLinks()">Borrar todo</button>
                         </div>
                     </div>
                     <ul id="linkList"></ul>
@@ -51,7 +51,7 @@
                     <div class="div-search">
                         <div class="search-bar-container">
                             <input  type="search" placeholder="Ciudad" id="search-location">
-                            <img src="./assets/img/search.png" alt="search" id="search-btn" onclick="getLocation()"/>
+                            <img src="./assets/img/search.png" alt="search" id="search-btn"/>
                         </div>
                         <ul id="search-location-results"></ul>
                     </div>

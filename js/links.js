@@ -22,6 +22,7 @@ const saveLink = () => {
         localStorage.links = JSON.stringify([...oldArray, newLink])
     }
     printLink()
+    clearInput()
 }
 
 const printLink = () => {
@@ -37,8 +38,12 @@ const printLink = () => {
             <button class="delete-link-btn" onclick="deleteLink('${name}', '${url}')">x</button>
         </li>`
     })
-    document.getElementById('link-name').value = ''
-    document.getElementById('link-URL').value = ''
+}
+
+const clearInput = () => {
+    linkNameInput.value = ''
+    linkUrlInput.value = ''
+    linkNameInput.focus()
 }
 
 const clearLinks = () => {

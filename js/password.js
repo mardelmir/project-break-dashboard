@@ -71,6 +71,7 @@ const printPassword = (password) => {
 
 const resetPassword = () => {
     passwordInput.value = '12'
+    passwordInput.focus()
     const customInput = document.querySelectorAll('.custom-input')
     for (const input of customInput) { input.value = '0' }
     passwordDiv.innerHTML = ''
