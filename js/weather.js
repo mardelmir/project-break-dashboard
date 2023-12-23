@@ -1,12 +1,13 @@
 const baseUrl = 'https://api.weatherapi.com/v1'
 const apiKey = '133633a870f34925876162254231412'
 const searchLocation = document.getElementById('search-location')
+const searchBtn = document.getElementById('search-btn')
 const results = document.getElementById('search-location-results')
 
-// ARREGLAR
-searchLocation.addEventListener('blur', ()=>{results.classList.add('blur')})
-searchLocation.addEventListener('focus', ()=>{results.classList.remove('blur')})
-document.getElementById('search-btn').addEventListener('click', ()=>{results.classList.remove('blur')})
+window.addEventListener('click', (clk) => {
+    (clk.target == searchLocation) || (clk.target == searchBtn) ? results.classList.remove('blur') : results.classList.add('blur')
+    clk.target == searchBtn ? searchLocation.focus() : searchLocation
+})
 
 const getLocation = () => {
     results.innerHTML = ''
