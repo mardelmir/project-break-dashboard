@@ -138,7 +138,7 @@ table {
 body {
 	min-height: 100%;
 	background: center/cover no-repeat fixed;
-	transition: all 1s ease-in-out;
+	transition: all .5s ease-in-out;
 	font-family: 'Quicksand', sans-serif;
 }
 
