@@ -485,7 +485,7 @@ input:focus {
 	margin-left: 15px;
 }
 
-.saved-alarms {
+.alarms-list {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;

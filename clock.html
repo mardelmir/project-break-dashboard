@@ -36,20 +36,20 @@
                 <h3>Alarmas</h3>
                 <div class="set-alarm">
                     <p>
-                        H: <input type="number" id="hour" min="0" max="23" required>
+                        H: <input type="number" id="hour" min="0" max="23" value="00">
                     </p>
                     <p>
-                        M: <input type="number" id="min" min="0" max="59" required>
+                        M: <input type="number" id="min" min="0" max="59" value="00">
                     </p>
                     <p>
-                        S: <input type="number" id="sec" min="0" max="59" required>
+                        S: <input type="number" id="sec" min="0" max="59" value="00">
                     </p>
                 </div>
                 <div class="div-btn">
                     <button type="button" id="alarm-btn" class="btn" onclick="setAlarm()">Añadir alarma</button>
                     <button type="button" id="clear-alarm" class="btn" onclick="clearStoredAlarms()">Eliminar todas las alarmas</button>
                 </div>
-                <ul id="saved-alarms" class="saved-alarms"></ul>
+                <ul id="alarms-list" class="hidden"></ul>
             </div>
         </div>
     </main>
