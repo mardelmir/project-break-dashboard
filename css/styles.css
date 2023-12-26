@@ -279,13 +279,13 @@ input:focus {
 .main {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	width: 100vw;
-	height: 100vh;
 }
 
 .main {
-	justify-content: center;
-	align-items: center;
+	height: 100vh;
 }
 
 .modal {
@@ -304,8 +304,11 @@ input:focus {
 	font-weight: 500;
 	font-size: 30px;
 	position: fixed;
-	top: 40vh;
 	z-index: 5;
+}
+
+.main-index .modal {
+	top: 40vh;
 }
 
 /* - Dark Mode - */
