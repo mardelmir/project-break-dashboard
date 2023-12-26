@@ -8,8 +8,7 @@ const currentTimeDate = () => {
     const date = now.toLocaleDateString(navigator.language, {
         year: 'numeric',
         month: '2-digit',
-        day: '2-digit',
-        weekday: 'long'
+        day: '2-digit'
     })
     document.getElementById('time-date').innerHTML = `
         <p class="time">${time}</p>
@@ -21,7 +20,7 @@ const currentTimeDate = () => {
 const verifyQuoteAlarm = (time) => {
     let stop = false
     document.getElementById('quote') ? printQuote(time) : stop = true
-    document.getElementById('alarms-list') ? displayAlarms() : stop = true
+    document.getElementById('alarms-list') ? (displayAlarms()) : stop = true
 }
 
 const printQuote = (time) => {
@@ -70,6 +69,7 @@ const saveAlarm = (newAlarm) => {
         const savedAlarms = JSON.parse(localStorage.alarms)
         localStorage.alarms = JSON.stringify([...savedAlarms, newAlarm])
     }
+    displayAlarms()
 }
 
 const displayAlarms = () => {

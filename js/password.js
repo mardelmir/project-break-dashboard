@@ -80,7 +80,7 @@ const resetPassword = () => {
 }
 
 passwordInput.addEventListener('keydown', (press) => {
-    if (press.key === 'Enter') { passwordGenerator() }
+if (press.key === 'Enter') { passwordGenerator() }
 })
 
 customInput.forEach(input => {

@@ -40,7 +40,7 @@ const verifyMode = () => {
     if (localStorage.mode == 'dark') {
         darkMode()
         if (body.classList !== 'dark-mode') { body.classList.add('dark-mode') }
-    } else {lightMode()}
+    } else { lightMode() }
 }
 
 const toggleMode = () => {
@@ -52,8 +52,39 @@ const toggleMode = () => {
 setInterval(verifyMode, 15000)
 verifyMode()
 
-// Nav-bar
+// Nav
 const menuVisibility = () => {
     const hiddenMenu = document.getElementById('hiddenMenu')
     hiddenMenu.classList.toggle('hidden')
 }
+
+// Alarmas
+const verifyAlarm = () => {
+    let stop = false;
+    (localStorage.alarms && localStorage.alarms !== '[]') ? triggerAlarm() : stop = true
+}
+
+const triggerAlarm = () => {
+    const date = new Date();
+    const now = date.toLocaleTimeString(navigator.language, {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    })
+    const parsedAlarms = JSON.parse(localStorage.alarms)
+    
+    parsedAlarms.forEach((alarm, i) => {
+        if (alarm === now) {
+            const modal = document.querySelector('.modal')
+            modal.classList.remove('hidden')
+            modal.innerHTML = `
+                <p>¡Son las ${alarm}!</p>
+                <button type="button" class="btn" onclick="hideModal(event)">Cerrar alarma</button>`
+        }
+    })
+}
+
+const hideModal = (clk) => {clk.target.parentElement.classList.add('hidden')}
+
+verifyAlarm()
+setInterval(verifyAlarm, 1000)
