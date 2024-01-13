@@ -56,7 +56,7 @@ const deleteLink = (removeName, removeUrl) => {
     printLink()
 }
 
-const clearStoredLinks = () => { localStorage.removeItem('links') }
+const clearStoredLinks = () => { localStorage.removeItem('links'), printLink() }
 
 verifyLinks()
 linkNameInput.addEventListener('keydown', (press) => { if (press.key === 'Enter') { saveLink() } })
