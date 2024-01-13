@@ -750,28 +750,6 @@ input:focus {
 	display: none;
 }
 
-@media (max-width: 905px) {
-	.index-content {
-		flex-direction: column;
-		align-items: center;
-	}
-
-	.weather {
-		order: 1;
-	}
-
-	.password {
-		width: 100%;
-		top: 0px;
-		order: 2;
-	}
-
-	.links {
-		width: 100%;
-		order: 3;
-	}
-}
-
 /* - Scrollbar - */
 /* Firefox */
 * {
@@ -781,32 +759,54 @@ input:focus {
   
   /* Chrome, Edge and Safari */
   *::-webkit-scrollbar {
-	height: 9px;
-	width: 9px;
-  }
-  *::-webkit-scrollbar-track {
-	border-radius: 5px;
-	background-color: transparent;
-  }
-  
-  *::-webkit-scrollbar-track:hover {
-	background-color: #7b8e9c21;
-  }
-  
-  *::-webkit-scrollbar-track:active {
-	background-color: transparent;
-  }
-  
-  *::-webkit-scrollbar-thumb {
-	border-radius: 5px;
-	background-color: #007edf17;
-  }
-  
-  *::-webkit-scrollbar-thumb:hover {
-	background-color: #007edf4f;
-  }
-  
-  *::-webkit-scrollbar-thumb:active {
-	background-color: #007edf65;
-  }
+	  height: 9px;
+	  width: 9px;
+	}
+	*::-webkit-scrollbar-track {
+		border-radius: 5px;
+		background-color: transparent;
+	}
+	
+	*::-webkit-scrollbar-track:hover {
+		background-color: #7b8e9c21;
+	}
+	
+	*::-webkit-scrollbar-track:active {
+		background-color: transparent;
+	}
+	
+	*::-webkit-scrollbar-thumb {
+		border-radius: 5px;
+		background-color: #007edf17;
+	}
+	
+	*::-webkit-scrollbar-thumb:hover {
+		background-color: #007edf4f;
+	}
+	
+	*::-webkit-scrollbar-thumb:active {
+		background-color: #007edf65;
+	}
+
+	@media (max-width: 905px) {
+		.index-content {
+			flex-direction: column;
+			align-items: center;
+		}
+	
+		.weather {
+			order: 1;
+		}
+	
+		.password {
+			width: 100%;
+			top: 0px;
+			order: 2;
+		}
+	
+		.links {
+			width: 100%;
+			order: 3;
+		}
+	}
   
